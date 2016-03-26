@@ -1,0 +1,204 @@
+<!DOCTYPE HTML>
+<!--
+/*
+ * jQuery File Upload Plugin Basic Demo
+ * https://github.com/blueimp/jQuery-File-Upload
+ *
+ * Copyright 2013, Sebastian Tschan
+ * https://blueimp.net
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
+-->
+<html lang="en">
+<head>
+<!-- Force latest IE rendering engine or ChromeFrame if installed -->
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><![endif]-->
+<meta charset="utf-8">
+<title>Jpg to Pdf Converter: Free And Simple Online Converter</title>
+<meta name="description" content="File Upload widget with multiple file selection, drag&amp;drop support and progress bar for jQuery. Supports cross-domain, chunked and resumable file uploads. Works with any server-side platform (PHP, Python, Ruby on Rails, Java, Node.js, Go etc.) that supports standard HTML form file uploads.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap styles -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<!-- Generic page styles -->
+<link rel="stylesheet" href="css/style.css">
+<!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+<link rel="stylesheet" href="css/jquery.fileupload.css">
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-75639316-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body >
+<img src="http://localhost:9999/ping" style="display:none" >
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container" >
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-fixed-top .navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">Jpg to Pdf Converter</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="contact-us.html">Contact Us</a></li>
+				<li><a href="http://blog.online-pdfconverter.net/">Blog</a></li>
+                <li><a href="#">&copy; Ankur Bansal</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container" style="width:80%;">
+    <h1>Jpg To Pdf Converter</h1>
+    <h2 class="lead"><img src="./img/logo.png" alt="online-pdfconverter logo">Convert jpg to pdf .Absolutely free...</h2>
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="basic.html"><strong>Free Jpg To Pdf Converter</strong></a></li>
+    </ul>
+    <br>
+    <blockquote>
+		<p>With this jpg to pdf converter you can convert jpg to pdf or jpeg to pdf absolutely free.There is absolutely no need to download any software on your computer.
+			This free jpg to pdf converter can be used to convert single or multiple jpg images into single pdf file.
+			<br>
+			Steps to convert jpg to pdf<br>
+			1.Select jpg image files one by one by clicking on <img src="./img/capture1.PNG" alt="button to input files" width="99" height="25">.<br>
+			2.Click on <img src="./img/capture2.PNG" alt="button to start conversion" width="95" height="26"> to start conversion . <br>
+			3.Click on save file option when download box appears .If not check your browsers download section to get your converted file.<br>
+			4.To reset everything and start new conversion process click on   <img src="./img/capture3.PNG" alt="button to start conversion" width="95" height="26"> button.
+		</p>
+	</blockquote>
+    <br>
+    <!-- The fileinput-button span is used to style the file input field as button -->
+    <span class="btn btn-success fileinput-button">
+        <i class="glyphicon glyphicon-plus"></i>
+        <span>Add Files...</span>
+        <!-- The file input field used as target for the file upload widget -->
+        <input id="fileupload" type="file" name="files[]"  multiple>
+    </span>
+	<a href="http://localhost:9999/convert">
+	<button type="submit" class="btn btn-primary start" disabled>
+                    <i class="glyphicon glyphicon-upload"></i>
+                    <span>Start Conversion</span>
+    </button>
+	</a>
+	<a href="index.html">
+	<button type="reset" class="btn btn-warning cancel">
+                    <i class="glyphicon glyphicon-ban-circle"></i>
+                    <span>Start Again</span>
+                </button>
+    <br>
+	</a>
+    <br>
+    <!-- The global progress bar -->
+    <div id="progress" class="progress">
+        <div class="progress-bar progress-bar-success"></div>
+    </div>
+    <!-- The container for the uploaded files -->
+    <div id="files" class="files"></div>
+    <br>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Notes On Using Jpg To Pdf Converter</h3>
+        </div>
+        <div class="panel-body">
+            <ul>
+					<li>You can select other images while some images are currently uploading.The application automatically add image files in the uploading queue.</li>
+					<li>Only conversions from jpg to pdf are supported through this free online jpg To pdf Converter </li>
+					<li>Only click <strong>convert to pdf button once all images are uploaded completely and their name appears on the file list </strong> </li>
+					<li>When you convert jpg to pdf,the resultant pdf will have all images alligned in center </li>
+					<li>Uploaded files will be deleted automatically after <strong>1 hour</strong>.We do not use any user data</li>
+					<li>You can also <strong>drag &amp; drop</strong> files from your computer drive on this webpage.</li>
+					<li>This jpg To pdf Converter is easy to use .In case of more detailed description read this tutorial <a href="http://blog.online-pdfconverter.net/2014/10/31/how-to-convert-jpg-to-pdf/">how to use jpg to pdf converter</a></li>
+					<li>To convert html to pdf use <a href="http://online-pdfconverter.net/html-to-pdf">this tool</a> or to convert txt to pdf in any language use <a href="http://online-pdfconverter.net/free-pdf-creator.html"> this tool</a> or read tutorials <a href="http://blog.online-pdfconverter.net/2014/11/01/how-to-convert-html-to-pdf/">How to convert html to pdf</a> and <a href="http://blog.online-pdfconverter.net/2014/10/30/how-to-convert-txt-to-pdf/">how to convert txt to pdf</a></li>
+				</ul>
+        </div>
+    </div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="alert alert-success alert-dismissable">
+				 
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
+					×
+				</button>
+				<h4>
+					Features!
+				</h4> 
+				<ul>
+				<li><strong>Completely Free</strong> This jpg to pdf converter is free to use </li>
+				<li><strong>Conveinient</strong> Our service is very simple to use .Just upload images and click button 'convert to pdf' </li>
+				<li><strong>No Limit</strong>There is absoluetly no limit on number of jpg files which you can use in one pdf</li>
+				<li><strong>Watermark Free</strong>We do not watermark the generated pdfs</li>
+				<li><strong>Ultra Fast</strong>This jpg to pdf converter is ultra fast to use</li>
+				<li><strong>Data Security</strong>Your data is deleted from our servers in next 5 minutes</li>
+				
+				
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div>
+	<p style="text-align:center"><a href="privacy-policy.html"> Privacy Policy </a> Copyright @ online-pdfconverter.net 
+	</p>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+<script src="js/vendor/jquery.ui.widget.js"></script>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+<script src="js/jquery.iframe-transport.js"></script>
+<!-- The basic File Upload plugin -->
+<script src="js/jquery.fileupload.js"></script>
+<!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script>
+/*jslint unparam: true */
+/*global window, $ */
+$(function () {
+    'use strict';
+    // Change this to the location of your server-side upload handler:
+    var url = window.location.hostname === 'blueimp.github.io' ?
+                '//jquery-file-upload.appspot.com/' : 'http://localhost:9999/upload';
+                    
+    $('#fileupload').fileupload({
+		xhrFields: { withCredentials: true },
+        url: url,
+        dataType: 'json',
+        done: function (e, data) {
+			enable_submit();
+            $.each(data.result.files, function (index, file) {
+                $('<p/>').text(file.name).appendTo('#files');
+            });
+        },
+        progressall: function (e, data) {
+            var progress = parseInt(data.loaded / data.total * 100, 10);
+			disable_submit();
+            $('#progress .progress-bar').css(
+                'width',
+                progress + '%'
+            );
+        }
+    }).prop('disabled', !$.support.fileInput)
+        .parent().addClass($.support.fileInput ? undefined : 'disabled');
+});
+
+function disable_submit(){
+	$( 'button[type="submit"]' ).prop( "disabled", true );
+	
+}
+
+function enable_submit(){
+	$( 'button[type="submit"]' ).prop( "disabled", false );
+	
+	
+}
+</script>
+</body>
+</html>
