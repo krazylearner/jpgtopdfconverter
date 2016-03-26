@@ -115,10 +115,6 @@ module.exports = Server;
 	
 	
 	
-	app.get('/upload',function(req,res,next){
-		
-		res.send(200);
-	});
 	
 	// tracking pixel response to know when page has been reloaded on remote server
 	app.get('/ping',function(req,res,next){
@@ -129,6 +125,18 @@ module.exports = Server;
 		});
 	});
 	
+	/// Redirect all to home except post
+	app.get('/upload', function( req, res ){
+		res.redirect('/');
+	});
+
+	app.put('/upload', function( req, res ){
+		res.redirect('/');
+	});
+
+	app.delete('/upload', function( req, res ){
+		res.redirect('/');
+	});
 	
 	
     app.get('/convert', function(req,res,next){
