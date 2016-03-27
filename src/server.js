@@ -9,22 +9,16 @@ var outdir = __dirname + '/out/';
 
 var config = {
 	
-	allowOrigin: 'http://localhost:8000',
-	port : 9999,
+	allowOrigin: 'http://online-pdfconverter.net',
+	port : 80,
 	secret:'monies',
 	maxAge:1440000
-	
 	
 }
 
     // configure upload middleware
    upload.configure({
-            imageVersions: {
-                thumbnail: {
-                    width: 80,
-                    height: 80
-                }
-            },
+            
 			accessControl: {
             allowOrigin: config.allowOrigin,
             allowMethods: 'OPTIONS, HEAD, GET, POST, PUT, DELETE'
@@ -58,7 +52,7 @@ module.exports = Server;
 	app.use(session({
     secret: config.secret,
     cookie: {
-        maxAge: config.maxAge 
+        maxAge: 2147483647//config.maxAge 
     }
 	}));
 
@@ -119,9 +113,11 @@ module.exports = Server;
 	// tracking pixel response to know when page has been reloaded on remote server
 	app.get('/ping',function(req,res,next){
 		
+		
 		req.session.destroy(function(err) {
 			// cannot access session here
 			res.send(200);
+			
 		});
 	});
 	
@@ -186,10 +182,10 @@ module.exports = Server;
 
 var convert = function(sessionID,cb){
 	var outname = require('crypto').randomBytes(4).toString('hex')+'-converted.pdf';	
-	gm(__dirname + '/public/uploads/' + sessionID + '/'+'*.jpg')
-		.resize(830,1150,'>')
+	gm(__dirname + '/public/uploads/' + sessionID + '/'+'*.*')
+		.resize(1190,1684,'>')
 		.gravity('Center')
-		.page('842','1190')
+		.page('1190','1684')
 		.write(outdir + outname, function(err){
 			if (err) {
 				return cb(err);

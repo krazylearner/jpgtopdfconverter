@@ -36,7 +36,7 @@
 </script>
 </head>
 <body >
-<img src="http://localhost:9999/ping" style="display:none" >
+<img src="http://localhost:80/ping" style="display:none" >
 <div class="navbar navbar-default navbar-fixed-top">
     <div class="container" >
         <div class="navbar-header">
@@ -83,7 +83,7 @@
         <!-- The file input field used as target for the file upload widget -->
         <input id="fileupload" type="file" name="files[]"  multiple>
     </span>
-	<a href="http://localhost:9999/convert">
+	<a href="http://localhost:80/convert">
 	<button type="submit" class="btn btn-primary start" disabled>
                     <i class="glyphicon glyphicon-upload"></i>
                     <span>Start Conversion</span>
@@ -165,10 +165,12 @@ $(function () {
     'use strict';
     // Change this to the location of your server-side upload handler:
     var url = window.location.hostname === 'blueimp.github.io' ?
-                '//jquery-file-upload.appspot.com/' : 'http://localhost:9999/upload';
+                '//jquery-file-upload.appspot.com/' : 'http://52.87.241.10:80/upload';
                     
     $('#fileupload').fileupload({
 		xhrFields: { withCredentials: true },
+		crossDomain: true,
+		sequentialUploads:true,
         url: url,
         dataType: 'json',
         done: function (e, data) {
