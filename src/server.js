@@ -52,7 +52,7 @@ module.exports = Server;
 	app.use(session({
     secret: config.secret,
     cookie: {
-        maxAge: 2147483647//config.maxAge 
+        maxAge: config.maxAge //config.maxAge 
     }
 	}));
 
