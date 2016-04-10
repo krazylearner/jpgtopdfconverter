@@ -1,0 +1,3 @@
+http://www.supremocontrol.com/download-supremo/
+python -m SimpleHTTPServer 8000
+nohup cmd &

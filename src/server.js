@@ -6,10 +6,11 @@ var app = express();
 var bodyParser = require('body-parser');
 var gm = require('gm').subClass({imageMagick: true});
 var outdir = __dirname + '/out/';
+var url = 'http://www.imagemagick.org/Usage/files/';
 
 var config = {
 	
-	allowOrigin: 'http://online-pdfconverter.net',
+	allowOrigin: 'http://localhost:8888',
 	port : 80,
 	secret:'monies',
 	maxAge:1440000
@@ -137,7 +138,7 @@ module.exports = Server;
 	
     app.get('/convert', function(req,res,next){
 
-            convert(req.sessionID,function(err,outname){
+            convert(function(err,outname){
 				
 				if (err){
 					res.status(500).json({err:err});
@@ -145,6 +146,7 @@ module.exports = Server;
 				else{
 					require('fs').stat(outdir + outname,function(err,stats){
 							if (err){
+								console.log(err)
 								res.status(500).json({err:err});
 							}else{
 								var outPdfStream =  require('fs').createReadStream(outdir + outname);
@@ -180,9 +182,9 @@ module.exports = Server;
     app.use(bodyParser.json());
 
 
-var convert = function(sessionID,cb){
+var convert = function(cb){
 	var outname = require('crypto').randomBytes(4).toString('hex')+'-converted.pdf';	
-	gm(__dirname + '/public/uploads/' + sessionID + '/'+'*.*')
+	gm(url)
 		.resize(1190,1684,'>')
 		.gravity('Center')
 		.page('1190','1684')
